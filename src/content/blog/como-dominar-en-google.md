@@ -1,5 +1,5 @@
 ---
-title: 'Domina Google: La guía definitiva para que tus futuros pacientes te encuentren primero'
+title: 'Posicionamiento en Google: Cómo lograr que te encuentren primero'
 description: Cuando la salud está en juego, los pacientes confían en los motores de búsqueda. Aprende cómo la homogeneización SEO blinda tu práctica médica.
 author: César Leyto
 category: Profesionistas

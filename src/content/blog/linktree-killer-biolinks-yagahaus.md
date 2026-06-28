@@ -4,7 +4,7 @@ description: Las herramientas genéricas en biografía aíslan tus datos y limit
 author: César Leyto
 category: Desarrollo Web
 pubDate: 2026-03-09
-heroImage: /assets/images/biolinks-2.jpg
+heroImage: /assets/images/biolinks-3.jpg
 ---
 
 Linktree, Campsite y los acortadores genéricos tuvieron sentido cuando solo necesitabas una lista de botones en Instagram. Hoy, en la era de la optimización algorítmica, usar plataformas de terceros es regalar tu activo más valioso: tus datos. 🚫

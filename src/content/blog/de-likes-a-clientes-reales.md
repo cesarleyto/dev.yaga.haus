@@ -1,5 +1,5 @@
 ---
-title: 'De Likes a Clientes Leales: La ingeniería de datos detrás de una marca personal rentable'
+title: 'De Likes a Clientes Leales: La ingeniería de datos detrás de una marca rentable'
 description: Una marca personal exitosa es mucho más que estética. Descubre cómo la arquitectura web de alto rendimiento asegura conversiones inteligentes.
 author: César Leyto
 category: Marca Personal
