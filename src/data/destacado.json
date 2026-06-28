@@ -1,11 +1,11 @@
 {
-  "title": "¿Es momento de su esquema de vacunación?",
-  "description": "Mantén a tus pequeños protegidos contra enfermedades prevenibles. Contamos con todas las vacunas del esquema nacional y biológicos complementarios sin dolor.",
-  "image": "/assets/images/image.jpg.webp.jpeg",
+  "title": "El mito de la viralidad: Por qué tus views no pagan las cuentas.",
+  "description": "Te explico por qué un millón de reproducciones no sirven de nada si no tienes una ecosistema web que filtre, eduque y convierta esa atención efímera en clientes reales.",
+  "image": "/assets/images/viralidad.jpg",
   "botones": [
     {
-      "texto": "Revisar Cartilla",
-      "url": "/blog/importancia-vacunas-primer-ano"
+      "texto": "Leer más",
+      "url": "/blog/ecosistema-embudo-ganador"
     }
   ]
 }

@@ -1,0 +1,145 @@
+---
+/* src/components/Servicios.astro */
+
+const servicios = [
+  { id: "dns", nombre: "Cloud-based", desc: "Gestión de servidores, dominios, subdominios, correos corporativos y certificados de seguridad. 100% basificado en la nube.", svg: `<path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>` },
+  { id: "cwv", nombre: "Core Web Vitals", desc: "Optimización de código puro para alcanzar métricas de velocidad de Google superiores a 95/100.", svg: `<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>` },
+  { id: "funnels", nombre: "Embudos de Conversión", desc: "Arquitectura estratégica que guía al usuario desde el descubrimiento hasta la conversión sin fricción.", svg: `<path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/>` },
+  { id: "pauta", nombre: "Gestión de Pauta", desc: "Inyección de tráfico pagado basado en métricas reales para optimizar tu retorno de inversión.", svg: `<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>` },
+  { id: "meta", nombre: "Meta API", desc: "Integración server-to-server para trackear eventos sin depender de cookies de terceros.", svg: `<path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/>` },
+  { id: "seo", nombre: "Indexación Semántica", desc: "Estructuramos datos para que los buscadores entiendan la autoridad de tu marca.", svg: `<circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>` },
+  { id: "ssl", nombre: "SSL Dinámico", desc: "Seguridad encriptada renovada automáticamente para blindar tus transacciones.", svg: `<rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>` },
+  { id: "links", nombre: "Smart Links", desc: "Enrutadores lógicos para centralizar y capturar todo tu tráfico digital.", svg: `<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>` },
+  { id: "headless", nombre: "CMS Headless", desc: "Base de datos desacoplada del diseño para inyección de contenido ultra-ligero.", svg: `<rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 8h16"/><path d="M4 12h16"/><path d="M8 4v16"/>` },
+  { id: "graphic", nombre: "Diseño & Contenido", desc: "Estrategia visual integral, desde piezas gráficas hasta activos multimedia de impacto.", svg: `<path d="M12 2l4 4-4 4-4-4 4-4z"/><path d="M12 14l4 4-4 4-4-4 4-4z"/><path d="M2 12l4 4-4 4-4-4 4-4z"/><path d="M22 12l-4 4 4 4 4-4-4-4z"/>` },
+  { id: "ui", nombre: "UI & UX", desc: "Interfaces centradas en el usuario con lógica de interacción que maximiza la retención.", svg: `<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>` },
+  { id: "nocode", nombre: "Cero Plantillas", desc: "No revendemos plantillas ni usamos creadores de sitios; hacemos código a la medida e ingeniería de datos para lograr una conversión inteligente.", svg: `<path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/>` }
+];
+---
+
+<section class="sopa-section fondo-default">
+  <div class="bg-overlay"></div>
+  
+  <div class="sopa-layout">
+    <div class="sopa-header">
+      <h2>¿Cómo lo hacemos?</h2>
+    </div>
+
+    <div class="sopa-container">
+      {servicios.map((servicio, index) => (
+        <button 
+          class="sopa-tag tag-mono" 
+          data-title={servicio.nombre} 
+          data-desc={servicio.desc}
+          data-svg={servicio.svg}
+          style={`animation-delay: ${index * 0.15}s;`}
+        >
+          {servicio.nombre}
+        </button>
+      ))}
+    </div>
+
+    <div class="sopa-inspector fondo-default">
+      <div class="inspector-icon" id="inspectorIcon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>
+      </div>
+      <div class="inspector-content">
+        <h3 id="inspectorTitle" class="tag-mono">Selecciona un servicio</h3>
+        <p id="inspectorDesc">Explora los nodos técnicos para ver cómo escalamos tu presencia en línea.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .sopa-section {
+    padding: 6rem 5%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bg-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('/assets/images/code.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15; /* Pediste 50% */
+    z-index: 0;
+  }
+
+  .sopa-layout {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  /* El resto de los estilos se mantienen igual para asegurar integridad */
+  .sopa-header { text-align: center; }
+  .sopa-header h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 0.5rem; color: var(--color-acento); }
+  .highlight-text { color: var(--color-acento); }
+  .subtitle { color: var(--texto-default-color); opacity: 0.8; font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+
+  .sopa-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; padding: 1rem 0; }
+  
+  .sopa-tag {
+    background-color: transparent;
+    border: 1px solid color-mix(in srgb, var(--texto-default-color) 20%, transparent);
+    color: var(--texto-default-color);
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--radius-capsule);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .sopa-tag:hover, .sopa-tag.active {
+    border-color: var(--color-acento);
+    color: var(--color-acento);
+    transform: scale(1.05);
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  .sopa-inspector {
+    display: flex; align-items: center; gap: 2rem; padding: 2.5rem;
+    border-radius: var(--radius-card);
+    border: 1px solid color-mix(in srgb, var(--texto-default-color) 20%, transparent);
+  }
+
+  .inspector-icon { width: 50px; height: 50px; color: var(--color-acento); }
+  .inspector-content { display: flex; flex-direction: column; gap: 0.5rem; }
+  
+  #inspectorTitle { color: var(--color-acento); font-size: 1.2rem; margin: 0; }
+  #inspectorDesc { color: var(--texto-default-color); opacity: 0.9; margin: 0; line-height: 1.6; }
+</style>
+
+<script>
+  const tags = document.querySelectorAll('.sopa-tag');
+  const inspectorTitle = document.getElementById('inspectorTitle');
+  const inspectorDesc = document.getElementById('inspectorDesc');
+  const inspectorIcon = document.getElementById('inspectorIcon');
+
+  tags.forEach(tag => {
+    tag.addEventListener('click', () => {
+      tags.forEach(t => t.classList.remove('active'));
+      tag.classList.add('active');
+
+      if (inspectorTitle && inspectorDesc && inspectorIcon) {
+        inspectorTitle.textContent = tag.getAttribute('data-title');
+        inspectorDesc.textContent = tag.getAttribute('data-desc');
+        // Inyectamos el SVG del servicio
+        inspectorIcon.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${tag.getAttribute('data-svg')}</svg>`;
+      }
+    });
+  });
+</script>

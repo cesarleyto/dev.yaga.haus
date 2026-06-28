@@ -1,0 +1,239 @@
+---
+/* src/components/ContactoForm.astro */
+---
+
+<div id="successMessage" class="success-message fondo-acento" style="display: none;">
+  <div class="success-icon">🚀</div>
+  <h3 class="success-title">¡Despliegue iniciado!</h3>
+  <p class="success-desc">Hemos recibido la información. Analizaremos tu arquitectura actual y nos pondremos en contacto contigo lo antes posible para estructurar tu proyecto.</p>
+</div>
+
+<form id="contactForm" class="contact-form">
+  
+  <div class="form-group">
+    <label for="proyecto" class="tag-mono">Nombre del proyecto <span class="required-star">*</span></label>
+    <input type="text" id="proyecto" name="proyecto" required placeholder="Negocio, marca personal o colectivo" class="form-input" />
+  </div>
+
+  <div class="form-group">
+    <label for="nombre" class="tag-mono">Nombre completo <span class="required-star">*</span></label>
+    <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre" class="form-input" />
+  </div>
+
+  <div class="form-group">
+    <label for="email" class="tag-mono">Email <span class="required-star">*</span></label>
+    <input type="email" id="email" name="email" required placeholder="correo@ejemplo.com" class="form-input" />
+  </div>
+
+  <div class="form-group">
+    <label for="telefono" class="tag-mono">WhatsApp / Teléfono <span class="required-star">*</span></label>
+    <input type="tel" id="telefono" name="telefono" required placeholder="Tu número" class="form-input" />
+  </div>
+
+  <div class="form-group">
+    <label for="web" class="tag-mono">Sitio web actual</label>
+    <input type="text" id="web" name="web" placeholder="Deja en blanco si no tienes" class="form-input" />
+  </div>
+
+  <div class="form-group">
+    <label for="redes" class="tag-mono">Redes sociales existentes</label>
+    <input type="text" id="redes" name="redes" placeholder="instagram, facebook, tiktok..." class="form-input" />
+  </div>
+
+  <div class="form-group">
+    <label class="tag-mono">Estado actual del proyecto <span class="required-star">*</span></label>
+    <div class="radio-group">
+      <label class="radio-label"><input type="radio" name="web-status" value="no" required /> No tengo sitio, empezamos de cero.</label>
+      <label class="radio-label"><input type="radio" name="web-status" value="mal" /> Tengo sitio, pero no convierte o necesita ser renovado.</label>
+      <label class="radio-label"><input type="radio" name="web-status" value="bien" /> Mi ecosistema es sólido, solo necesito escalar contenidos.</label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="objetivo" class="tag-mono">¿Cuál es tu objetivo principal? <span class="required-star">*</span></label>
+    <textarea id="objetivo" name="objetivo" rows="3" required placeholder="Ej. Agendar citas médicas, incrementar ventas, posicionar mi imagen pública, que escuchen mi música, etc." class="form-input"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="vision" class="tag-mono">Visión a futuro (6-12 meses) <span class="required-star">*</span></label>
+    <textarea id="vision" name="vision" rows="4" required placeholder="Cuéntanos tus metas de conversión a mediano plazo..." class="form-input"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="referencias" class="tag-mono">Referencias o competencia directa</label>
+    <textarea id="referencias" name="referencias" rows="3" placeholder="Sitios web o perfiles que te sirvan de inspiración" class="form-input"></textarea>
+  </div>
+
+  <div class="form-footer">
+    <button type="submit" class="btn-principal" id="submitBtn">Enviar Solicitud</button>
+  </div>
+</form>
+
+<style>
+  /* ==========================================
+     ESTILOS DEL FORMULARIO (100% Referenciados)
+     ========================================== */
+
+  .contact-form { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 1.5rem; 
+    width: 100%; 
+  }
+  
+  .form-group { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 0.5rem; 
+  }
+  
+  /* Usamos color de texto global y tu fuente monoespaciada */
+  label { 
+    color: var(--texto-default-color); 
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+  
+  .required-star { 
+    color: var(--color-acento); 
+  }
+  
+  /* Inputs limpios, usando bordes que heredan el color del texto (transparente) */
+  .form-input { 
+    background-color: var(--default-color); /* Hereda fondo base puro */
+    border: 1px solid color-mix(in srgb, var(--texto-default-color) 20%, transparent);
+    border-radius: 8px; /* Un poco menos redondeado para ese look tech */
+    padding: 1rem; 
+    color: var(--texto-default-color); 
+    font-family: var(--font-main);
+    font-size: 1rem; 
+    width: 100%; 
+    box-sizing: border-box; 
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .form-input::placeholder {
+    color: var(--texto-default-color);
+    opacity: 0.4;
+  }
+  
+  .form-input:focus { 
+    border-color: var(--color-acento); 
+    outline: none; 
+    /* Brillo sutil al enfocar */
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-acento) 20%, transparent);
+  }
+  
+  /* Botones de Radio */
+  .radio-group { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 0.8rem; 
+    margin-top: 0.5rem; 
+  }
+  
+  .radio-label { 
+    font-family: var(--font-main);
+    font-weight: 400; 
+    font-size: 0.95rem; 
+    cursor: pointer; 
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--texto-default-color);
+    opacity: 0.9;
+  }
+  
+  /* Estilizado del botón nativo del form */
+  .form-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  
+  button:disabled { 
+    opacity: 0.5; 
+    cursor: not-allowed; 
+    transform: none !important; 
+  }
+
+  /* --- ESTILOS DEL MENSAJE DE ÉXITO --- */
+  .success-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    border-radius: var(--radius-card);
+    width: 100%;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .success-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .success-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    /* Al usar fondo-acento, los títulos ya se adaptan, pero forzamos por si acaso */
+    color: inherit; 
+  }
+  
+  .success-desc {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 500px;
+    opacity: 0.9;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('contactForm') as HTMLFormElement;
+  const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement;
+  const successMessage = document.getElementById('successMessage') as HTMLElement;
+  
+  // Tu URL de Google Sheets
+  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyY_Gt0OUxBMDpKgMGZOvkzQOIVaicMYX430h7KyBPeTv46Pqn4hdVOoMNxAasEj9KE/exec';
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    // Cambiar estado del botón
+    const originalText = submitBtn.innerText;
+    submitBtn.innerText = 'PROCESANDO...';
+    submitBtn.disabled = true;
+
+    const formData = new FormData(form);
+    
+    try {
+      // Petición directa a Google con 'no-cors'
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+      });
+
+      // OCULTAR FORMULARIO Y MOSTRAR MENSAJE DE ÉXITO
+      form.style.display = 'none';
+      successMessage.style.display = 'flex';
+      
+      // Scroll suave hacia el mensaje de éxito (opcional pero útil)
+      window.scrollTo({ top: successMessage.offsetTop - 100, behavior: 'smooth' });
+      
+    } catch (error) {
+      alert("Error de red. Verifica tu conexión a internet e intenta de nuevo.");
+      // Restaurar botón solo si hay error
+      submitBtn.innerText = originalText;
+      submitBtn.disabled = false;
+    }
+  });
+</script>

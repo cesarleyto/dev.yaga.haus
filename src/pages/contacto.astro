@@ -1,0 +1,85 @@
+---
+/* src/pages/contacto.astro */
+import Layout from '../layouts/Layout.astro';
+import ContactoForm from '../components/ContactoForm.astro';
+import Cta from '../components/Cta.astro';
+---
+
+<Layout title="Contacto | dev.yaga.haus">
+  <section class="contacto-container fondo-default-similar">
+    
+    <header class="contacto-header">
+      <h1 class="page-title">Inicia tu <span class="highlight-text">despliegue.</span></h1>
+      <p class="subtitle">
+        Cuéntanos qué necesitas y evaluaremos cómo nuestra infraestructura y código a medida pueden escalar tus conversiones. Sé lo más específico posible.
+      </p>
+    </header>
+
+    <div class="form-wrapper fondo-default">
+      <ContactoForm />
+    </div>
+</br ></br > <Cta />
+  </section>
+
+</Layout>
+
+<style>
+  /* ==========================================
+     LAYOUT DE CONTACTO (0% Hardcodeo)
+     ========================================== */
+
+  .contacto-container { 
+    /* Margen superior para compensar el header si está fijo, igual que en precios */
+    align-items: center; 
+    min-height: calc(100vh - 200px);
+    max-width: 1200px;  margin: 8rem auto 6rem; padding: 0 1.5rem; display: flex; flex-direction: column;
+  }
+
+  /* --- CABECERA --- */
+  .contacto-header { 
+    width: 100%; 
+    max-width: 800px; 
+    text-align: center; 
+    margin-bottom: 3.5rem; 
+  }
+
+  .page-title { 
+    /* Usamos clamp para responsivo fluido sin media queries extra */
+    font-size: clamp(2.5rem, 5vw, 3.5rem); 
+    line-height: 1.1; 
+    margin: 0 0 1rem 0; 
+  }
+
+  .highlight-text { 
+    color: var(--color-acento); 
+  }
+
+  .subtitle { 
+    /* Usa el color de texto global con opacidad para jerarquía */
+    color: var(--texto-default-color); 
+    opacity: 0.8;
+    font-size: 1.15rem; 
+    line-height: 1.6; 
+    margin: 0 auto; 
+    max-width: 600px;
+  }
+
+  /* --- CAJA DEL FORMULARIO --- */
+  .form-wrapper { 
+    width: 100%; 
+    max-width: 700px; 
+    padding: 3rem; 
+    border-radius: var(--radius-card); 
+    /* Borde sutil basado en el color de texto */
+    border: 1px solid var(--texto-default-color);
+    /* Modificamos la opacidad del borde con un hack de CSS para mantener tu variable pura */
+    border-color: color-mix(in srgb, var(--texto-default-color) 15%, transparent);
+    margin-bottom: 2rem;
+  }
+  
+  /* RESPONSIVE MÓVIL */
+  @media (max-width: 850px) {
+    .contacto-container { padding: 5rem 1.5rem 3rem 1.5rem; }
+    .form-wrapper { padding: 2rem 1.5rem; }
+  }
+</style>

@@ -2,22 +2,22 @@
   "showSocials": true,
   "enlaces": [
     {
-      "texto": "Inicio",
+      "texto": "¿QUÉ HACEMOS?",
       "url": "/"
     },
     {
-      "texto": "Sobre Mi",
-      "url": "/sobre-mi"
+      "texto": "PRECIOS",
+      "url": "/precios"
     },
     {
-      "texto": "Blog",
+      "texto": "BLOG",
       "url": "/blog"
     }
   ],
   "botones": [
     {
-      "texto": "¡Agenda vía WhatsApp!",
-      "url": "https://wa.me/529710000000"
+      "texto": "¡Hablemos de tu proyecto!",
+      "url": "/contacto"
     }
   ]
 }
