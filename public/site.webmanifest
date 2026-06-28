@@ -1,6 +1,6 @@
 {
-    "name": "Yaga Template Starter",
-    "short_name": "YagaTemplate",
+    "name": "dev.yaga.haus - Tu motor web definitivo. Sobre cada métrica, cada nodo, cada conversión.",
+    "short_name": "dev.yaga.haus",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
